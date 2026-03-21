@@ -1,1 +1,22 @@
+# Home Network Security Assessment
 
+## Scan Results Summary
+- Total hosts discovered: 14
+- Vulnerable services found: 3
+- Critical issues: Medium
+
+## Security Findings
+
+### Finding 1: 3 Unknown Devices
+**Severity:** MEDIUM
+**Host:** 192.168.10.13
+**Issue:** Unauthorized device on network?
+
+**Investigation Process :**
+- I Checked MAC address
+- Cross-reference with known devices
+- It was an IoT device i forgot about
+
+**Action That i took:** 
+ -I Identified the device it was an old iphone that i no  longer use 
+ -The other 2 devices were home appliances that i confirmed
