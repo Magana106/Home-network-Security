@@ -5,7 +5,7 @@
 **Objective:** 
 I Conducted a thorough security assessment of my home network to identify vulnerabilities, misconfigurations, and security gaps using industry-standard reconnaissance tools and methodologies.
 
-**Duration:** 8 hours over one weekend
+**Duration:** 8 hours over two weekend
 
 **Environment:** Home network (192.168.1.0/24), Qatar
 
