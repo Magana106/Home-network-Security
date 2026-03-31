@@ -1,1 +1,274 @@
+# Nmap 7.98 scan initiated Sat Mar 28 20:41:32 2026 as: nmap -sV -sC -oN detailed_scan.txt 192.168.10.1/24
+Nmap scan report for 192.168.1.1
+Host is up (0.0063s latency).
+Not shown: 996 closed tcp ports (reset)
+PORT     STATE SERVICE        VERSION
+53/tcp   open  domain         dnsmasq 2.78
+| dns-nsid: 
+|_  bind.version: dnsmasq-2.78
+80/tcp   open  http-proxy     tinyproxy 1.11.0-rc1
+|_http-title: NETGEAR Router Orbi Index
+443/tcp  open  ssl/http-proxy tinyproxy 1.11.0-rc1
+|_http-title: NETGEAR Router Orbi Index
+| ssl-cert: Subject: commonName=default.example.com
+| Not valid before: 2015-05-19T10:50:23
+|_Not valid after:  2025-05-16T10:50:23
+|_ssl-date: TLS randomness does not represent time
+5000/tcp open  upnp           MiniUPnP 1.9 (OpenWrt; UPnP 1.0)
+MAC Address: C8:9E:43:DA:0F:80 (Netgear)
+Service Info: Device: broadband router
+
+Nmap scan report for 192.168.1.2
+Host is up (0.011s latency).
+Not shown: 998 closed tcp ports (reset)
+PORT     STATE SERVICE VERSION
+80/tcp   open  http    mini_httpd 1.19 19dec2003
+|_http-title: Site doesn't have a title (text/html; charset=utf-8).
+1050/tcp open  http    mini_httpd 1.19 19dec2003
+|_http-title: Did not follow redirect to http://www.mywifiext.net
+MAC Address: CC:40:D0:D4:D6:76 (Netgear)
+
+Nmap scan report for 192.168.1.3
+Host is up (0.015s latency).
+Not shown: 999 closed tcp ports (reset)
+PORT      STATE SERVICE    VERSION
+62078/tcp open  tcpwrapped
+MAC Address: A6:93:48:3C:82:22 (Unknown)
+
+Nmap scan report for 192.168.1.0
+Host is up (0.013s latency).
+Not shown: 999 closed tcp ports (reset)
+PORT      STATE SERVICE     VERSION
+10001/tcp open  scp-config?
+MAC Address: 40:CD:7A:38:D9:F1 (Qingdao Hisense Communications)
+
+Nmap scan report for 192.168.1.9
+Host is up (0.014s latency).
+Not shown: 998 closed tcp ports (reset)
+PORT      STATE SERVICE    VERSION
+49152/tcp open  tcpwrapped
+62078/tcp open  tcpwrapped
+MAC Address: 28:83:C9:98:F3:D2 (Apple)
+
+Nmap scan report for 192.168.1.7
+Host is up (0.013s latency).
+Not shown: 997 closed tcp ports (reset)
+PORT      STATE SERVICE VERSION
+53/tcp    open  domain  Cloudflare public DNS
+80/tcp    open  http    ASUS WRT http admin
+|_http-title: Site doesn't have a title (text/html).
+|_http-server-header: httpd/2.0
+49152/tcp open  upnp    Cisco-Linksys E4200 WAP upnpd (UPnP 1.0)
+MAC Address: 04:42:1A:81:68:04 (ASUSTek Computer)
+Service Info: CPE: cpe:/o:asus:wrt_firmware, cpe:/h:cisco:e4200
+
+Nmap scan report for 192.168.10.0
+Host is up (0.013s latency).
+Not shown: 996 closed tcp ports (reset)
+PORT     STATE SERVICE         VERSION
+8008/tcp open  http?
+|_http-title: Site doesn't have a title (text/html).
+8009/tcp open  ssl/ajp13?
+|_ajp-methods: Failed to get a valid response for the OPTION request
+|_ssl-date: TLS randomness does not represent time
+| ssl-cert: Subject: commonName=c33d7767-5677-800f-9d8f-5386a31067d0
+| Not valid before: 2026-03-28T05:41:50
+|_Not valid after:  2026-03-30T05:41:50
+8090/tcp open  opsmessaging?
+| fingerprint-strings: 
+|   FourOhFourRequest: 
+|     HTTP/1.1 500 Internal Server Error 
+|     Content-Type: text/plain
+|     Date: Sat, 28 Mar 2026 14:43:23 GMT
+|     Access-Control-Allow-Origin: *
+|     Access-Control-Allow-Headers: Origin, Content-Type
+|     Connection: keep-alive
+|     Content-Length: 56
+|     SERVER INTERNAL ERROR: Serve() returned a null response.
+|   GenericLines: 
+|     HTTP/1.1 400 Bad Request 
+|     Content-Type: text/plain
+|     Date: Sat, 28 Mar 2026 14:42:33 GMT
+|     Access-Control-Allow-Origin: *
+|     Access-Control-Allow-Headers: Origin, Content-Type
+|     Connection: keep-alive
+|     Content-Length: 56
+|     REQUEST: Syntax error. Usage: GET /example/file.html
+|   GetRequest: 
+|     HTTP/1.1 500 Internal Server Error 
+|     Content-Type: text/plain
+|     Date: Sat, 28 Mar 2026 14:42:33 GMT
+|     Access-Control-Allow-Origin: *
+|     Access-Control-Allow-Headers: Origin, Content-Type
+|     Connection: keep-alive
+|     Content-Length: 56
+|     SERVER INTERNAL ERROR: Serve() returned a null response.
+|   HTTPOptions, RTSPRequest: 
+|     HTTP/1.1 200 OK 
+|     Content-Type: text/html
+|     Date: Sat, 28 Mar 2026 14:42:33 GMT
+|     Access-Control-Allow-Origin: *
+|     Access-Control-Allow-Headers: Origin, Content-Type
+|     Connection: close
+|     Content-Length: 0
+|   SIPOptions: 
+|     HTTP/1.1 200 OK 
+|     Content-Type: text/html
+|     Date: Sat, 28 Mar 2026 14:43:39 GMT
+|     Access-Control-Allow-Origin: *
+|     Access-Control-Allow-Headers: Origin, Content-Type
+|     Connection: close
+|_    Content-Length: 0
+9000/tcp open  ssl/cslistener?
+|_ssl-date: 2026-03-28T17:45:31+00:00; -2s from scanner time.
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port8090-TCP:V=7.98%I=7%D=3/28%Time=69C8130A%P=i686-pc-windows-windows%
+SF:r(GenericLines,114,"HTTP/1\.1\x20400\x20Bad\x20Request\x20\r\nContent-T
+SF:ype:\x20text/plain\r\nDate:\x20Sat,\x2028\x20Mar\x202026\x2014:42:33\x2
+SF:0GMT\r\nAccess-Control-Allow-Origin:\x20\*\r\nAccess-Control-Allow-Head
+SF:ers:\x20Origin,\x20Content-Type\r\nConnection:\x20keep-alive\r\nContent
+SF:-Length:\x2056\r\n\r\nBAD\x20REQUEST:\x20Syntax\x20error\.\x20Usage:\x2
+SF:0GET\x20/example/file\.html")%r(GetRequest,11E,"HTTP/1\.1\x20500\x20Int
+SF:ernal\x20Server\x20Error\x20\r\nContent-Type:\x20text/plain\r\nDate:\x2
+SF:0Sat,\x2028\x20Mar\x202026\x2014:42:33\x20GMT\r\nAccess-Control-Allow-O
+SF:rigin:\x20\*\r\nAccess-Control-Allow-Headers:\x20Origin,\x20Content-Typ
+SF:e\r\nConnection:\x20keep-alive\r\nContent-Length:\x2056\r\n\r\nSERVER\x
+SF:20INTERNAL\x20ERROR:\x20Serve\(\)\x20returned\x20a\x20null\x20response\
+SF:.")%r(HTTPOptions,CC,"HTTP/1\.1\x20200\x20OK\x20\r\nContent-Type:\x20te
+SF:xt/html\r\nDate:\x20Sat,\x2028\x20Mar\x202026\x2014:42:33\x20GMT\r\nAcc
+SF:ess-Control-Allow-Origin:\x20\*\r\nAccess-Control-Allow-Headers:\x20Ori
+SF:gin,\x20Content-Type\r\nConnection:\x20close\r\nContent-Length:\x200\r\
+SF:n\r\n")%r(RTSPRequest,CC,"HTTP/1\.1\x20200\x20OK\x20\r\nContent-Type:\x
+SF:20text/html\r\nDate:\x20Sat,\x2028\x20Mar\x202026\x2014:42:33\x20GMT\r\
+SF:nAccess-Control-Allow-Origin:\x20\*\r\nAccess-Control-Allow-Headers:\x2
+SF:0Origin,\x20Content-Type\r\nConnection:\x20close\r\nContent-Length:\x20
+SF:0\r\n\r\n")%r(FourOhFourRequest,11E,"HTTP/1\.1\x20500\x20Internal\x20Se
+SF:rver\x20Error\x20\r\nContent-Type:\x20text/plain\r\nDate:\x20Sat,\x2028
+SF:\x20Mar\x202026\x2014:43:23\x20GMT\r\nAccess-Control-Allow-Origin:\x20\
+SF:*\r\nAccess-Control-Allow-Headers:\x20Origin,\x20Content-Type\r\nConnec
+SF:tion:\x20keep-alive\r\nContent-Length:\x2056\r\n\r\nSERVER\x20INTERNAL\
+SF:x20ERROR:\x20Serve\(\)\x20returned\x20a\x20null\x20response\.")%r(SIPOp
+SF:tions,CC,"HTTP/1\.1\x20200\x20OK\x20\r\nContent-Type:\x20text/html\r\nD
+SF:ate:\x20Sat,\x2028\x20Mar\x202026\x2014:43:39\x20GMT\r\nAccess-Control-
+SF:Allow-Origin:\x20\*\r\nAccess-Control-Allow-Headers:\x20Origin,\x20Cont
+SF:ent-Type\r\nConnection:\x20close\r\nContent-Length:\x200\r\n\r\n");
+MAC Address: 6C:FF:CE:94:53:41 (Sagemcom Broadband SAS)
+
+Host script results:
+|_clock-skew: -2s
+
+Nmap scan report for 192.168.1.2
+Host is up (0.019s latency).
+Not shown: 996 closed tcp ports (reset)
+PORT      STATE SERVICE    VERSION
+8085/tcp  open  tcpwrapped
+20000/tcp open  dnp?
+| fingerprint-strings: 
+|   HTTPOptions, Kerberos, NotesRPC, RPCCheck, giop: 
+|_    GCDH
+49154/tcp open  upnp
+| fingerprint-strings: 
+|   DNSVersionBindReqTCP, GenericLines, NULL, RPCCheck, RTSPRequest: 
+|     HTTP/0.0 400 Bad Request
+|     SERVER: eCos/3, UPnP/1.0, Portable SDK for UPnP devices/1.8.5
+|     CONTENT-LENGTH: 50
+|     Accept-Ranges: bytes
+|     CONTENT-TYPE: text/html
+|     <html><body><h1>400 Bad Request</h1></body></html>
+|   GetRequest: 
+|     HTTP/1.0 500 Internal Server Error
+|     SERVER: eCos/3, UPnP/1.0, Portable SDK for UPnP devices/1.8.5
+|     CONTENT-LENGTH: 60
+|     Accept-Ranges: bytes
+|     CONTENT-TYPE: text/html
+|     <html><body><h1>500 Internal Server Error</h1></body></html>
+|   HTTPOptions: 
+|     HTTP/0.0 501 Not Implemented
+|     SERVER: eCos/3, UPnP/1.0, Portable SDK for UPnP devices/1.8.5
+|     CONTENT-LENGTH: 54
+|     Accept-Ranges: bytes
+|     CONTENT-TYPE: text/html
+|_    <html><body><h1>501 Not Implemented</h1></body></html>
+49159/tcp open  unknown
+2 services unrecognized despite returning data. If you know the service/version, please submit the following fingerprints at https://nmap.org/cgi-bin/submit.cgi?new-service :
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port20000-TCP:V=7.98%I=7%D=3/28%Time=69C81325%P=i686-pc-windows-windows
+SF:%r(HTTPOptions,2E,"GCDH\x1e\0\0\0\xdf\x07\0\0\0\0\0\0x\x9c\x8b\xae\xe6\
+SF:xe2\xe4Tr\xce\xcf\xcdM\xccKQ\xb2\xe2TR\xe2\xe2\xac\x8d\x05\0@\x05\x05j"
+SF:)%r(RPCCheck,2E,"GCDH\x1e\0\0\0\xdf\x07\0\0\0\0\0\0x\x9c\x8b\xae\xe6\xe
+SF:2\xe4Tr\xce\xcf\xcdM\xccKQ\xb2\xe2TR\xe2\xe2\xac\x8d\x05\0@\x05\x05j")%
+SF:r(Kerberos,2E,"GCDH\x1e\0\0\0\xdf\x07\0\0\0\0\0\0x\x9c\x8b\xae\xe6\xe2\
+SF:xe4Tr\xce\xcf\xcdM\xccKQ\xb2\xe2TR\xe2\xe2\xac\x8d\x05\0@\x05\x05j")%r(
+SF:NotesRPC,2E,"GCDH\x1e\0\0\0\xdf\x07\0\0\0\0\0\0x\x9c\x8b\xae\xe6\xe2\xe
+SF:4Tr\xce\xcf\xcdM\xccKQ\xb2\xe2TR\xe2\xe2\xac\x8d\x05\0@\x05\x05j")%r(gi
+SF:op,2E,"GCDH\x1e\0\0\0\xdf\x07\0\0\0\0\0\0x\x9c\x8b\xae\xe6\xe2\xe4Tr\xc
+SF:e\xcf\xcdM\xccKQ\xb2\xe2TR\xe2\xe2\xac\x8d\x05\0@\x05\x05j");
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port49154-TCP:V=7.98%I=7%D=3/28%Time=69C81308%P=i686-pc-windows-windows
+SF:%r(NULL,D0,"HTTP/0\.0\x20400\x20Bad\x20Request\r\nSERVER:\x20eCos/3,\x2
+SF:0UPnP/1\.0,\x20Portable\x20SDK\x20for\x20UPnP\x20devices/1\.8\.5\r\nCON
+SF:TENT-LENGTH:\x2050\r\nAccept-Ranges:\x20bytes\r\nCONTENT-TYPE:\x20text/
+SF:html\r\n\r\n<html><body><h1>400\x20Bad\x20Request</h1></body></html>")%
+SF:r(GenericLines,D0,"HTTP/0\.0\x20400\x20Bad\x20Request\r\nSERVER:\x20eCo
+SF:s/3,\x20UPnP/1\.0,\x20Portable\x20SDK\x20for\x20UPnP\x20devices/1\.8\.5
+SF:\r\nCONTENT-LENGTH:\x2050\r\nAccept-Ranges:\x20bytes\r\nCONTENT-TYPE:\x
+SF:20text/html\r\n\r\n<html><body><h1>400\x20Bad\x20Request</h1></body></h
+SF:tml>")%r(GetRequest,E4,"HTTP/1\.0\x20500\x20Internal\x20Server\x20Error
+SF:\r\nSERVER:\x20eCos/3,\x20UPnP/1\.0,\x20Portable\x20SDK\x20for\x20UPnP\
+SF:x20devices/1\.8\.5\r\nCONTENT-LENGTH:\x2060\r\nAccept-Ranges:\x20bytes\
+SF:r\nCONTENT-TYPE:\x20text/html\r\n\r\n<html><body><h1>500\x20Internal\x2
+SF:0Server\x20Error</h1></body></html>")%r(HTTPOptions,D8,"HTTP/0\.0\x2050
+SF:1\x20Not\x20Implemented\r\nSERVER:\x20eCos/3,\x20UPnP/1\.0,\x20Portable
+SF:\x20SDK\x20for\x20UPnP\x20devices/1\.8\.5\r\nCONTENT-LENGTH:\x2054\r\nA
+SF:ccept-Ranges:\x20bytes\r\nCONTENT-TYPE:\x20text/html\r\n\r\n<html><body
+SF:><h1>501\x20Not\x20Implemented</h1></body></html>")%r(RTSPRequest,D0,"H
+SF:TTP/0\.0\x20400\x20Bad\x20Request\r\nSERVER:\x20eCos/3,\x20UPnP/1\.0,\x
+SF:20Portable\x20SDK\x20for\x20UPnP\x20devices/1\.8\.5\r\nCONTENT-LENGTH:\
+SF:x2050\r\nAccept-Ranges:\x20bytes\r\nCONTENT-TYPE:\x20text/html\r\n\r\n<
+SF:html><body><h1>400\x20Bad\x20Request</h1></body></html>")%r(RPCCheck,D0
+SF:,"HTTP/0\.0\x20400\x20Bad\x20Request\r\nSERVER:\x20eCos/3,\x20UPnP/1\.0
+SF:,\x20Portable\x20SDK\x20for\x20UPnP\x20devices/1\.8\.5\r\nCONTENT-LENGT
+SF:H:\x2050\r\nAccept-Ranges:\x20bytes\r\nCONTENT-TYPE:\x20text/html\r\n\r
+SF:\n<html><body><h1>400\x20Bad\x20Request</h1></body></html>")%r(DNSVersi
+SF:onBindReqTCP,D0,"HTTP/0\.0\x20400\x20Bad\x20Request\r\nSERVER:\x20eCos/
+SF:3,\x20UPnP/1\.0,\x20Portable\x20SDK\x20for\x20UPnP\x20devices/1\.8\.5\r
+SF:\nCONTENT-LENGTH:\x2050\r\nAccept-Ranges:\x20bytes\r\nCONTENT-TYPE:\x20
+SF:text/html\r\n\r\n<html><body><h1>400\x20Bad\x20Request</h1></body></htm
+SF:l>");
+MAC Address: 04:42:1A:81:68:04 (ASUSTek Computer)
+
+Nmap scan report for 192.168.1.1
+Host is up (0.00048s latency).
+Not shown: 995 closed tcp ports (reset)
+PORT     STATE SERVICE       VERSION
+135/tcp  open  msrpc         Microsoft Windows RPC
+139/tcp  open  netbios-ssn   Microsoft Windows netbios-ssn
+445/tcp  open  microsoft-ds?
+8000/tcp open  http          Splunkd httpd
+| http-robots.txt: 1 disallowed entry 
+|_/
+|_http-server-header: Splunkd
+| http-title: Site doesn't have a title (text/html; charset=UTF-8).
+|_Requested resource was http://192.168.10.11:8000/en-US/account/login?return_to=%2Fen-US%2F
+8089/tcp open  ssl/http      Splunkd httpd
+|_ssl-date: TLS randomness does not represent time
+|_http-title: splunkd
+|_http-server-header: Splunkd
+| ssl-cert: Subject: commonName=SplunkServerDefaultCert/organizationName=SplunkUser
+| Not valid before: 2026-03-14T13:49:39
+|_Not valid after:  2029-03-13T13:49:39
+| http-robots.txt: 1 disallowed entry 
+|_/
+Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Host script results:
+| smb2-time: 
+|   date: 2026-03-28T17:45:59
+|_  start_date: N/A
+| smb2-security-mode: 
+|   3.1.1: 
+|_    Message signing enabled and required
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Sat Mar 28 20:46:11 2026 -- 256 IP addresses (9 hosts up) scanned in 279.59 seconds
 
