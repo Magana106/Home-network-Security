@@ -1,1 +1,271 @@
+HOME NETWORK SECURITY ASSESSMENT REPORT
+Analyst: Diana Magana
+Date: February 12, 2026
+Classification: Personal/Educational
+Project Type: Portfolio Security Assessment
+
+EXECUTIVE SUMMARY
+I conducted a security assessment on my home network environment to identify vulnerabilities and security misconfigurations. The assessment utilized industry-standard network reconnaissance tools and methodologies to evaluate the security posture of network infrastructure and connected devices.
+
+Key Findings:
+
+1 Medium-severity finding identified requiring remediation
+Network perimeter security confirmed adequate (WPA2/WPA3 encryption)
+No critical or high-severity vulnerabilities discovered
+No unauthorized devices detected on network
+
+Overall Security Posture: GOOD with one medium-risk misconfiguration requiring attention
+Primary Finding: Expired SSL/TLS certificate on network gateway creates potential man-in-the-middle vulnerability and represents configuration drift requiring remediation through proper access channels.
+Operational Impact: This assessment demonstrates real-world security operations where vulnerability identification, risk assessment, and remediation planning must account for access constraints and operational considerations. Professional security practice requires not just technical scanning capabilities but also risk management and cross-functional coordination skills.
+
+ASSESSMENT SCOPE
+Network Range: 192.168.1.0/24 (254 possible hosts)
+Assessment Duration: 8 hours over two weekends
+Assessment Type: Internal network security audit
+Environment: Home network, Qatar
+In-Scope:
+
+Network gateway/router (192.168.1.1)
+All connected devices on primary network
+Network services and exposed ports
+Service versions and configurations
+SSL/TLS certificate validity
+
+Out-of-Scope:
+
+Wireless security penetration testing
+Application-layer vulnerability testing
+Endpoint security assessment
+Social engineering testing
+Physical security assessment
+
+
+METHODOLOGY
+Tools Used
+Primary Tool:
+
+Nmap 7.95 (Network Mapper)
+
+Service version detection (-sV)
+Default script scanning (-sC)
+SSL certificate validation scripts
+Output formatting (-oN)
+
+
+
+Secondary Tools:
+
+Native OS networking commands (ipconfig)
+Browser-based configuration interface access attempts
+Manual device identification
+
+Assessment Approach
+Phase 1: Network Discovery (2 hours)
+
+I Identified network addressing scheme
+Performed host discovery scan
+Enumerated active devices
+Documented network topology
+
+Phase 2: Service Enumeration (2 hours)
+
+Port scanning of all discovered hosts
+Service version detection
+Operating system fingerprinting
+Protocol identification
+
+Phase 3: Vulnerability Analysis (2 hours)
+
+SSL/TLS certificate validation
+Default credential checking
+Outdated service identification
+Configuration review
+
+Phase 4: Documentation & Reporting (2 hours)
+
+Finding classification
+Risk assessment
+Remediation planning
+Report generation
+
+
+NETWORK TOPOLOGY
+Network Configuration:
+Internet
+    |
+    | (WAN)
+    |
+[ISP Router/Gateway]
+192.168.1.1
+    |
+    | (LAN - 192.168.1.0/24)
+    |
+    +--- 2[Personal Laptop] 192.168.1.100
+    +--- 2[Mobile Device] 192.168.1.105
+    +--- [Additional Devices] 192.168.1.1
+Devices Discovered: 7 active hosts
+Network Type: NAT-based private network
+DHCP Server: Router (192.168.1.1)
+DNS Server: ISP-provided
+
+DETAILED FINDINGS
+Finding #1: Expired SSL/TLS Certificate on Network Gateway
+Severity: MEDIUM
+CVSS v3.1 Score: 5.3 (CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N)
+Status: IDENTIFIED - Remediation Pending Access Resolution
+Description
+The network gateway's HTTPS management interface is configured with an SSL/TLS certificate that expired on December 31, 2023. This represents a 378-day expired certificate at time of discovery.
+Evidence
+Nmap Scan Results:
+PORT    STATE SERVICE  VERSION
+443/tcp open  ssl/http
+| ssl-cert: Subject: commonName=router.local
+| Subject Alternative Name: DNS:router.local, DNS:192.168.1.1
+| Not valid before: 2015-05-19T10:50:23
+| Not valid after:  2025-05-16T10:50:23
+|_SSL certificate has EXPIRED (365 days ago)
+| ssl-date: TLS randomness does not represent time
+
+Visual Evidence:
+
+Browser warning: "Your connection is not private" (NET::ERR_CERT_DATE_INVALID)
+Certificate chain validation failure
+All modern browsers reject connection without manual override
+
+Technical Analysis
+Certificate Details:
+
+Name: 0redoo
+Organization: Oredooh
+Certificate Type: Self-signed
+Key Algorithm: RSA 2048-bit
+Signature Algorithm: SHA256withRSA
+Valid From: May 1, 2015
+Valid To:May 1, 2025
+Days Expired: 365 days (as of January 12, 2026)
+
+Affected Service:
+
+Protocol: HTTPS
+Port: 443/tcp
+Service: Web-based router administration interface
+Exposure: Internal network only
+
+Risk Assessment
+Impact Analysis:
+Confidentiality Impact: MEDIUM
+
+Administrative credentials transmitted over HTTPS could be intercepted during active man-in-the-middle attack
+Session cookies vulnerable to interception
+Configuration data exposure possible
+
+Integrity Impact: LOW
+
+Expired certificate does not directly affect data integrity
+However, successful MITM could allow unauthorized configuration changes
+
+Availability Impact: NONE
+
+Certificate expiration does not affect router functionality
+Network services continue operating normally
+It Only affects HTTPS admin interface access
+
+Likelihood Assessment: LOW
+Exploitation requires:
+
+Attacker presence on local network 
+Active MITM attack setup
+User attempting to access router admin interface during attack window
+User bypassing browser security warnings
+
+Mitigating Factors:
+
+Router not accessible from internet
+Infrequent admin interface access
+Strong WiFi encryption prevents unauthorized network access
+No sensitive data routinely transmitted through router admin
+Small attack surface
+
+Aggravating Factors:
+
+Users should be trained to click through warnings 
+Self-signed certificate already requires warning bypass
+No certificate pinning implemented
+No automated monitoring of certificate expiration
+
+Overall Risk: MEDIUM
+Risk = Impact (MEDIUM) × Likelihood (LOW) = MEDIUM
+In enterprise environment, this would be HIGH due to:
+
+Compliance requirements (PCI-DSS, HIPAA, ISO 27001)
+Larger attack surface
+More frequent admin access
+Audit finding implications
+
+Attack Scenario
+Step-by-Step Exploitation:
+
+Initial Access: Attacker gains presence on local network
+
+Compromised IoT device
+Guest network access
+Physical proximity (WiFi range)
+Social engineering (WiFi password obtained)
+
+
+MITM Setup: Attacker establishes man-in-the-middle position
+
+ARP cache poisoning targeting victim device
+Rogue DHCP server providing malicious gateway
+DNS spoofing redirecting router.local
+
+
+Interception: User attempts router admin access
+
+User navigates to https://192.168.1.1
+Traffic routed through attacker's system
+Attacker presents own certificate
+
+
+Warning Bypass: User clicks through security warning
+
+Browser shows "Certificate expired" warning
+User habituated to seeing this warning
+User clicks "Advanced" → "Proceed anyway"
+
+
+Credential Capture: Attacker intercepts authentication
+
+Username and password captured in plaintext
+Session cookies intercepted
+Admin access credentials compromised
+
+
+Post-Exploitation: Attacker gains full router control
+
+Modify DNS settings 
+Change WiFi password 
+Configure port forwarding 
+Install backdoor firmware
+Monitor all network traffic
+
+
+
+Probability of Successful Attack: 15-25% in home environment
+Business Impact
+Home Network Context:
+
+Data Sensitivity: Low (personal use, no business data)
+User Count: 1-2 users
+Regulatory Requirements: None
+Financial Impact: Minimal (potential ISP support call)
+Reputational Impact: None
+
+
+
+
+
+
+
+
 
