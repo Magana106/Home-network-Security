@@ -1,1 +1,18 @@
-
+Nmap scan report for 192.168.1.1
+Host is up (0.0063s latency).
+Not shown: 996 closed tcp ports (reset)
+PORT     STATE SERVICE        VERSION
+53/tcp   open  domain         dnsmasq 2.78
+| dns-nsid: 
+|_  bind.version: dnsmasq-2.78
+80/tcp   open  http-proxy     tinyproxy 1.11.0-rc1
+|_http-title: NETGEAR Router Orbi Index
+443/tcp  open  ssl/http-proxy tinyproxy 1.11.0-rc1
+|_http-title: NETGEAR Router Orbi Index
+| ssl-cert: Subject: commonName=default.example.com
+| Not valid before: 2015-05-19T10:50:23
+|_Not valid after:  2025-05-16T10:50:23
+|_ssl-date: TLS randomness does not represent time
+5000/tcp open  upnp           MiniUPnP 1.9 (OpenWrt; UPnP 1.0)
+MAC Address: C8:9E:43:DA:0F:80 (Netgear)
+Service Info: Device: broadband router
